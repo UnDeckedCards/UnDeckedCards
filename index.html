@@ -1,0 +1,3750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UNDECKED — TRY TO LOSE</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#050505;
+    color:white;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:70px;
+    background:rgba(5,5,5,.97);
+    border-bottom:1px solid #222;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    z-index:1000;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:900;
+    letter-spacing:4px;
+}
+
+.logo span{
+    color:#ff2020;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#ff2020;
+}
+
+.menu{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+section{
+    padding:110px 6%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.title h2{
+    font-size:44px;
+}
+
+.title span{
+    color:#ff2020;
+}
+
+.title p{
+    color:#777;
+    margin-top:10px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+    radial-gradient(
+        circle at center,
+        #3b0000 0%,
+        #150000 30%,
+        #050505 70%
+    );
+}
+
+.hero h1{
+    font-size:clamp(60px,12vw,150px);
+    line-height:.82;
+    letter-spacing:-6px;
+}
+
+.hero h1 span{
+    color:#ff2020;
+}
+
+.hero p{
+    margin-top:30px;
+    color:#999;
+    letter-spacing:6px;
+    font-size:20px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 25px;
+    border-radius:7px;
+    text-decoration:none;
+    font-weight:bold;
+    cursor:pointer;
+    border:none;
+}
+
+.primary{
+    background:#ff2020;
+    color:white;
+}
+
+.primary:hover{
+    background:#d90000;
+}
+
+.secondary{
+    background:#151515;
+    border:1px solid #444;
+    color:white;
+}
+
+.secondary:hover{
+    border-color:#ff2020;
+}
+
+/* ABOUT */
+
+.about{
+    background:#0c0c0c;
+}
+
+.about-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.about-box,
+.big-logo{
+    background:#111;
+    border:1px solid #292929;
+    border-radius:15px;
+    padding:35px;
+}
+
+.about-box h3{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.about-box p{
+    color:#999;
+    line-height:1.7;
+}
+
+.big-logo{
+    min-height:300px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.big-logo h2{
+    font-size:60px;
+    letter-spacing:5px;
+}
+
+.big-logo h2 span{
+    color:#ff2020;
+}
+
+.big-logo p{
+    margin-top:12px;
+    color:#777;
+    letter-spacing:4px;
+}
+
+/* CARDS */
+
+.cards-grid{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.card-preview{
+    min-height:190px;
+    background:#111;
+    border:1px solid #292929;
+    border-radius:12px;
+    padding:25px;
+    transition:.2s;
+}
+
+.card-preview:hover{
+    transform:translateY(-5px);
+    border-color:#ff2020;
+}
+
+.card-preview .type{
+    color:#ff2020;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.card-preview h3{
+    margin-top:20px;
+    font-size:23px;
+}
+
+.card-preview p{
+    margin-top:10px;
+    color:#888;
+    line-height:1.5;
+}
+
+/* HOW */
+
+.how{
+    background:#0c0c0c;
+}
+
+.steps{
+    max-width:900px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.step{
+    background:#111;
+    border:1px solid #292929;
+    border-radius:12px;
+    padding:30px 20px;
+    text-align:center;
+}
+
+.step-number{
+    width:50px;
+    height:50px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#ff2020;
+    border-radius:50%;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.step h3{
+    margin-top:18px;
+}
+
+.step p{
+    margin-top:10px;
+    color:#888;
+    line-height:1.5;
+}
+
+/* BUY */
+
+.buy{
+    background:
+    radial-gradient(
+        circle at center,
+        #280000,
+        #070707 65%
+    );
+}
+
+.buy-container{
+    max-width:1050px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.product-box{
+    min-height:500px;
+    border:1px solid #333;
+    border-radius:20px;
+    background:
+    radial-gradient(
+        circle,
+        #3a0000,
+        #090909 65%
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    position:relative;
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.7);
+}
+
+.product-box::before{
+    content:"";
+    position:absolute;
+    width:310px;
+    height:400px;
+    background:
+    linear-gradient(
+        145deg,
+        #1d1d1d,
+        #070707
+    );
+    border:4px solid #3a3a3a;
+    border-radius:18px;
+    transform:rotate(-5deg);
+    box-shadow:
+    15px 20px 40px rgba(0,0,0,.8);
+}
+
+.product-front{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    width:250px;
+    transform:rotate(-5deg);
+}
+
+.product-front h3{
+    font-size:42px;
+    letter-spacing:5px;
+}
+
+.product-front h3 span{
+    color:#ff2020;
+}
+
+.product-front .try{
+    margin-top:15px;
+    color:#aaa;
+    letter-spacing:5px;
+    font-weight:bold;
+}
+
+.product-front .deck-number{
+    margin-top:70px;
+    color:#777;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.product-info h2{
+    font-size:43px;
+    line-height:1;
+}
+
+.product-info h2 span{
+    color:#ff2020;
+}
+
+.product-subtitle{
+    margin-top:12px;
+    color:#777;
+}
+
+.price{
+    margin-top:25px;
+    font-size:38px;
+    font-weight:900;
+}
+
+.price small{
+    color:#777;
+    font-size:14px;
+    font-weight:normal;
+}
+
+.product-description{
+    margin-top:20px;
+    color:#999;
+    line-height:1.7;
+}
+
+.includes{
+    margin-top:25px;
+}
+
+.includes h3{
+    font-size:15px;
+    margin-bottom:12px;
+}
+
+.includes ul{
+    list-style:none;
+}
+
+.includes li{
+    color:#aaa;
+    margin:9px 0;
+}
+
+.includes li::before{
+    content:"✓";
+    color:#ff2020;
+    font-weight:bold;
+    margin-right:10px;
+}
+
+/* PACKAGE OPTIONS */
+
+.package-options{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:25px;
+}
+
+.package{
+    padding:15px;
+    background:#111;
+    border:1px solid #333;
+    border-radius:9px;
+    cursor:pointer;
+    text-align:left;
+    transition:.2s;
+}
+
+.package:hover{
+    border-color:#ff2020;
+}
+
+.package.selected{
+    border-color:#ff2020;
+    background:#210000;
+}
+
+.package strong{
+    display:block;
+    font-size:16px;
+}
+
+.package span{
+    display:block;
+    margin-top:5px;
+    color:#999;
+    font-size:13px;
+}
+
+.package .save{
+    color:#ff2020;
+    font-size:11px;
+    font-weight:bold;
+    margin-top:7px;
+}
+
+.buy-controls{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:28px;
+    flex-wrap:wrap;
+}
+
+.buy-now{
+    height:45px;
+    padding:0 28px;
+    border:none;
+    border-radius:7px;
+    background:#ff2020;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.buy-now:hover{
+    background:#d90000;
+}
+
+.buy-note{
+    margin-top:12px;
+    color:#555;
+    font-size:12px;
+}
+
+/* PLAY */
+
+.play{
+    min-height:1000px;
+    background:
+    radial-gradient(
+        circle at center,
+        #180000,
+        #050505 70%
+    );
+}
+
+.setup{
+    max-width:650px;
+    margin:auto;
+    background:#111;
+    border:1px solid #292929;
+    border-radius:15px;
+    padding:30px;
+    text-align:center;
+}
+
+.setup h3{
+    margin-bottom:20px;
+}
+
+.player-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.player-count{
+    padding:12px 18px;
+    background:#171717;
+    color:white;
+    border:1px solid #444;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.player-count:hover{
+    border-color:#ff2020;
+}
+
+.player-count.selected{
+    background:#ff2020;
+    border-color:#ff2020;
+}
+
+#game{
+    display:none;
+    max-width:1250px;
+    margin:auto;
+}
+
+.game-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.game-title h3{
+    font-size:25px;
+}
+
+.game-title p{
+    margin-top:5px;
+    color:#888;
+}
+
+.game-stats{
+    display:flex;
+    gap:10px;
+}
+
+.stat{
+    min-width:90px;
+    padding:10px 15px;
+    background:#111;
+    border:1px solid #292929;
+    border-radius:8px;
+    text-align:center;
+}
+
+.stat small{
+    display:block;
+    color:#666;
+}
+
+.stat strong{
+    font-size:19px;
+}
+
+.table-scene{
+    width:100%;
+    height:700px;
+    position:relative;
+}
+
+.game-table{
+    position:absolute;
+    left:8%;
+    right:8%;
+    top:8%;
+    bottom:8%;
+    border-radius:50%;
+    background:
+    radial-gradient(
+        ellipse at center,
+        #4b2a17,
+        #291408 65%,
+        #130803
+    );
+    border:18px solid #160a05;
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.8),
+    inset 0 0 60px rgba(0,0,0,.5);
+}
+
+.game-table::after{
+    content:"";
+    position:absolute;
+    inset:6%;
+    border:2px solid rgba(255,255,255,.06);
+    border-radius:50%;
+}
+
+.table-center{
+    position:absolute;
+    left:50%;
+    top:47%;
+    transform:translate(-50%,-50%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:55px;
+    z-index:15;
+}
+
+.pile{
+    text-align:center;
+}
+
+.pile-title{
+    margin-bottom:8px;
+    color:#aaa;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.pile-count{
+    margin-top:7px;
+    color:#777;
+    font-size:11px;
+}
+
+.draw-pile{
+    width:105px;
+    height:145px;
+    position:relative;
+    cursor:pointer;
+}
+
+.draw-card{
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:10px;
+    border:2px solid #777;
+    background:
+    repeating-linear-gradient(
+        45deg,
+        #111,
+        #111 6px,
+        #292929 6px,
+        #292929 12px
+    );
+    box-shadow:
+    3px 4px 0 #111,
+    6px 8px 0 #222,
+    10px 12px 15px rgba(0,0,0,.6);
+}
+
+.draw-card::after{
+    content:"UNDECKED";
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:
+    translate(-50%,-50%)
+    rotate(-45deg);
+    font-size:13px;
+    font-weight:1000;
+    letter-spacing:2px;
+    color:#ff2020;
+}
+
+.played-card{
+    width:105px;
+    height:145px;
+    border-radius:10px;
+    border:2px solid #777;
+    background:
+    linear-gradient(
+        145deg,
+        #1c1c1c,
+        #090909
+    );
+    padding:12px;
+    text-align:left;
+    box-shadow:
+    10px 12px 20px rgba(0,0,0,.6);
+}
+
+.played-card.empty{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#555;
+    border-style:dashed;
+}
+
+.played-type{
+    color:#ff2020;
+    font-size:9px;
+    font-weight:bold;
+}
+
+.played-name{
+    margin-top:20px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.played-description{
+    margin-top:8px;
+    color:#777;
+    font-size:9px;
+    line-height:1.3;
+}
+
+.seat{
+    position:absolute;
+    width:170px;
+    text-align:center;
+    z-index:20;
+}
+
+.seat-avatar{
+    width:65px;
+    height:65px;
+    margin:auto;
+    border-radius:50%;
+    background:
+    radial-gradient(
+        circle at 50% 30%,
+        #ddd 0 17%,
+        transparent 18%
+    ),
+    linear-gradient(
+        #333 0 48%,
+        #171717 49%
+    );
+    border:3px solid #555;
+    box-shadow:
+    0 7px 15px rgba(0,0,0,.6);
+}
+
+.seat.current .seat-avatar{
+    border-color:#ff2020;
+    box-shadow:
+    0 0 20px rgba(255,32,32,.5);
+}
+
+.seat-name{
+    margin-top:7px;
+    font-weight:bold;
+}
+
+.seat-count{
+    margin-top:3px;
+    color:#ff2020;
+    font-weight:bold;
+}
+
+.seat-status{
+    margin-top:3px;
+    color:#777;
+    font-size:11px;
+}
+
+.seat.out{
+    opacity:.25;
+}
+
+.opponent-cards{
+    height:35px;
+    margin-top:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.mini-card{
+    width:24px;
+    height:34px;
+    margin-left:-8px;
+    background:
+    repeating-linear-gradient(
+        45deg,
+        #171717,
+        #171717 4px,
+        #292929 4px,
+        #292929 8px
+    );
+    border:1px solid #555;
+    border-radius:4px;
+    box-shadow:
+    2px 3px 4px rgba(0,0,0,.5);
+}
+
+.mini-card:first-child{
+    margin-left:0;
+}
+
+.seat-1{
+    top:-5px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.seat-2{
+    top:18%;
+    right:-2px;
+}
+
+.seat-3{
+    bottom:10%;
+    right:5%;
+}
+
+.seat-4{
+    bottom:-5px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.seat-5{
+    bottom:10%;
+    left:5%;
+}
+
+.seat-6{
+    top:18%;
+    left:-2px;
+}
+
+.my-hand{
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    text-align:center;
+    z-index:30;
+}
+
+.hand-label{
+    margin-bottom:7px;
+    color:#aaa;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.hand{
+    min-height:150px;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+}
+
+.game-card{
+    width:105px;
+    height:145px;
+    margin-left:-14px;
+    padding:12px;
+    background:
+    linear-gradient(
+        145deg,
+        #1a1a1a,
+        #0d0d0d
+    );
+    border:2px solid #555;
+    border-radius:10px;
+    text-align:left;
+    cursor:pointer;
+    position:relative;
+    transition:.2s;
+    box-shadow:
+    0 10px 20px rgba(0,0,0,.6);
+}
+
+.game-card:first-child{
+    margin-left:0;
+}
+
+.game-card:hover{
+    transform:translateY(-28px);
+    border-color:#ff2020;
+    z-index:100;
+}
+
+.game-card .card-type{
+    color:#ff2020;
+    font-size:9px;
+    font-weight:bold;
+}
+
+.game-card h4{
+    margin-top:22px;
+    font-size:14px;
+}
+
+.game-card p{
+    margin-top:7px;
+    color:#777;
+    font-size:9px;
+    line-height:1.3;
+}
+
+.target-panel{
+    display:none;
+    margin-top:20px;
+    padding:20px;
+    background:#111;
+    border:1px solid #ff2020;
+    border-radius:12px;
+    text-align:center;
+}
+
+.target-panel p{
+    margin-top:5px;
+    color:#888;
+}
+
+.target-buttons{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:15px;
+}
+
+.target-button{
+    padding:11px 18px;
+    background:#191919;
+    border:1px solid #444;
+    color:white;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.target-button:hover{
+    border-color:#ff2020;
+    background:#230000;
+}
+
+.message{
+    margin-top:15px;
+    padding:14px;
+    background:#111;
+    border:1px solid #292929;
+    border-radius:9px;
+    text-align:center;
+    color:#aaa;
+}
+
+.game-controls{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:15px;
+}
+
+/* RULES */
+
+.rules{
+    background:#0c0c0c;
+}
+
+.rules-box{
+    max-width:800px;
+    margin:auto;
+    background:#111;
+    border:1px solid #292929;
+    border-radius:14px;
+    padding:30px;
+}
+
+.rule{
+    display:flex;
+    gap:15px;
+    margin-bottom:18px;
+}
+
+.rule-number{
+    color:#ff2020;
+    font-weight:bold;
+}
+
+.rule p{
+    color:#999;
+    line-height:1.5;
+}
+
+/* FOOTER */
+
+footer{
+    padding:35px;
+    background:#050505;
+    border-top:1px solid #222;
+    text-align:center;
+}
+
+footer h3{
+    letter-spacing:4px;
+}
+
+footer h3 span{
+    color:#ff2020;
+}
+
+footer p{
+    margin-top:8px;
+    color:#555;
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    nav ul{
+        display:none;
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#080808;
+        flex-direction:column;
+        padding:25px;
+        text-align:center;
+    }
+
+    nav ul.show{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .about-grid,
+    .cards-grid,
+    .steps,
+    .buy-container{
+        grid-template-columns:1fr;
+    }
+
+    .package-options{
+        grid-template-columns:1fr;
+    }
+
+    .product-box{
+        min-height:420px;
+    }
+
+    .table-scene{
+        height:760px;
+    }
+
+    .game-table{
+        left:1%;
+        right:1%;
+        top:12%;
+        bottom:15%;
+    }
+
+    .seat{
+        width:120px;
+    }
+
+    .seat-avatar{
+        width:52px;
+        height:52px;
+    }
+
+    .table-center{
+        gap:20px;
+    }
+
+    .draw-pile,
+    .played-card{
+        width:80px;
+        height:110px;
+    }
+
+    .played-name{
+        margin-top:10px;
+        font-size:11px;
+    }
+
+    .played-description{
+        font-size:7px;
+    }
+
+    .game-card{
+        width:72px;
+        height:110px;
+        padding:8px;
+    }
+
+    .game-card h4{
+        margin-top:13px;
+        font-size:10px;
+    }
+
+    .game-card p{
+        font-size:7px;
+    }
+
+    .hand{
+        min-height:115px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo">
+        UNDECKED<span>.</span>
+    </div>
+
+    <div class="menu" onclick="toggleMenu()">
+        ☰
+    </div>
+
+    <ul id="navLinks">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#cards">CARDS</a></li>
+        <li><a href="#how">HOW TO PLAY</a></li>
+        <li><a href="#buy">BUY</a></li>
+        <li><a href="#play">PLAY</a></li>
+        <li><a href="#rules">RULES</a></li>
+    </ul>
+
+</nav>
+
+
+<section class="hero" id="home">
+
+    <div>
+
+        <h1>
+            UNDECKED<span>.</span>
+        </h1>
+
+        <p>
+            TRY TO LOSE.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#play" class="btn primary">
+                PLAY NOW
+            </a>
+
+            <a href="#buy" class="btn secondary">
+                BUY THE DECK
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="about" id="about">
+
+    <div class="title">
+
+        <h2>
+            WELCOME TO
+            <span>UNDECKED</span>
+        </h2>
+
+        <p>
+            A card game where staying alive is the goal.
+        </p>
+
+    </div>
+
+    <div class="about-grid">
+
+        <div class="big-logo">
+
+            <h2>
+                UNDECKED<span>.</span>
+            </h2>
+
+            <p>
+                TRY TO LOSE
+            </p>
+
+        </div>
+
+        <div class="about-box">
+
+            <h3>
+                WHAT IS UNDECKED?
+            </h3>
+
+            <p>
+                UNDECKED is a chaotic card game
+                for 2–6 players.
+            </p>
+
+            <br>
+
+            <p>
+                Everyone starts with 7 cards.
+                Players can steal cards, give cards,
+                force opponents to draw and destroy
+                their hands.
+            </p>
+
+            <br>
+
+            <p>
+                Your cards can disappear quickly.
+                Reach 0 cards and you're out.
+                The last player with cards wins.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="cards">
+
+    <div class="title">
+
+        <h2>
+            THE
+            <span>CARDS</span>
+        </h2>
+
+        <p>
+            Every card affects another player.
+        </p>
+
+    </div>
+
+    <div class="cards-grid">
+
+        <div class="card-preview">
+            <div class="type">ATTACK</div>
+            <h3>SLASH</h3>
+            <p>Choose an opponent. They discard 2 cards.</p>
+        </div>
+
+        <div class="card-preview">
+            <div class="type">ATTACK</div>
+            <h3>CRASH</h3>
+            <p>Choose an opponent. They discard 3 cards.</p>
+        </div>
+
+        <div class="card-preview">
+            <div class="type">STEAL</div>
+            <h3>HEIST</h3>
+            <p>Take 2 random cards from an opponent.</p>
+        </div>
+
+        <div class="card-preview">
+            <div class="type">TRANSFER</div>
+            <h3>BURDEN</h3>
+            <p>Give 3 cards from your hand to an opponent.</p>
+        </div>
+
+        <div class="card-preview">
+            <div class="type">CHAOS</div>
+            <h3>HAND SWAP</h3>
+            <p>Swap your entire hand with an opponent.</p>
+        </div>
+
+        <div class="card-preview">
+            <div class="type">BASE</div>
+            <h3>BASE BREAKER</h3>
+            <p>Choose an opponent with 5+ cards. They discard 5.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="how" id="how">
+
+    <div class="title">
+
+        <h2>
+            HOW TO
+            <span>PLAY</span>
+        </h2>
+
+    </div>
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="step-number">1</div>
+
+            <h3>START</h3>
+
+            <p>
+                Everyone starts with 7 cards.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="step-number">2</div>
+
+            <h3>PLAY</h3>
+
+            <p>
+                Draw when allowed, then play a card.
+            </p>
+
+        </div>
+
+        <div class="step">
+
+            <div class="step-number">3</div>
+
+            <h3>SURVIVE</h3>
+
+            <p>
+                Reach 0 cards and you're out.
+                Last player wins.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BUY SECTION -->
+
+<section class="buy" id="buy">
+
+    <div class="title">
+
+        <h2>
+            GET
+            <span>UNDECKED</span>
+        </h2>
+
+        <p>
+            Pick your deck size.
+        </p>
+
+    </div>
+
+    <div class="buy-container">
+
+        <div class="product-box">
+
+            <div class="product-front">
+
+                <h3>
+                    UNDECKED<span>.</span>
+                </h3>
+
+                <div class="try">
+                    TRY TO LOSE
+                </div>
+
+                <div class="deck-number">
+                    OFFICIAL 72 CARD DECK
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-info">
+
+            <h2>
+                UNDECKED
+                <span>DECKS</span>
+            </h2>
+
+            <div class="product-subtitle">
+                The official 72-card UNDECKED deck.
+            </div>
+
+
+            <div class="price">
+                $<span id="price">9.99</span>
+                <small>CAD</small>
+            </div>
+
+
+            <p class="product-description">
+
+                A chaotic card game for
+                2–6 players. Start with 7 cards,
+                attack your opponents, steal cards,
+                give cards and try to survive.
+
+            </p>
+
+
+            <div class="includes">
+
+                <h3>
+                    EVERY DECK INCLUDES
+                </h3>
+
+                <ul>
+
+                    <li>72 UNDECKED CARDS</li>
+
+                    <li>Official game rules</li>
+
+                    <li>UNDECKED storage box</li>
+
+                    <li>2–6 player game</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- PACKAGES -->
+
+            <div class="package-options">
+
+                <div
+                    class="package selected"
+                    onclick="selectPackage(1,9.99,this)">
+
+                    <strong>
+                        1 DECK
+                    </strong>
+
+                    <span>
+                        $9.99 CAD
+                    </span>
+
+                    <div class="save">
+                        STARTER
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="package"
+                    onclick="selectPackage(2,17.99,this)">
+
+                    <strong>
+                        2 DECKS
+                    </strong>
+
+                    <span>
+                        $17.99 CAD
+                    </span>
+
+                    <div class="save">
+                        SAVE $2
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="package"
+                    onclick="selectPackage(3,24.99,this)">
+
+                    <strong>
+                        3 DECKS
+                    </strong>
+
+                    <span>
+                        $24.99 CAD
+                    </span>
+
+                    <div class="save">
+                        SAVE $5
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="package"
+                    onclick="selectPackage(5,39.99,this)">
+
+                    <strong>
+                        5 DECKS
+                    </strong>
+
+                    <span>
+                        $39.99 CAD
+                    </span>
+
+                    <div class="save">
+                        SAVE $10
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="buy-controls">
+
+                <button
+                    class="buy-now"
+                    onclick="buyDeck()">
+
+                    BUY NOW
+
+                </button>
+
+            </div>
+
+            <div class="buy-note">
+                Checkout will be connected here.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PLAY -->
+
+<section class="play" id="play">
+
+    <div class="title">
+
+        <h2>
+            PLAY
+            <span>UNDECKED</span>
+        </h2>
+
+        <p>
+            Sit down. Deal the cards. Try not to lose.
+        </p>
+
+    </div>
+
+
+    <div class="setup" id="setup">
+
+        <h3>
+            HOW MANY PLAYERS?
+        </h3>
+
+        <div class="player-buttons">
+
+            <button
+                class="player-count selected"
+                onclick="selectPlayers(2,this)">
+                2 PLAYERS
+            </button>
+
+            <button
+                class="player-count"
+                onclick="selectPlayers(3,this)">
+                3 PLAYERS
+            </button>
+
+            <button
+                class="player-count"
+                onclick="selectPlayers(4,this)">
+                4 PLAYERS
+            </button>
+
+            <button
+                class="player-count"
+                onclick="selectPlayers(5,this)">
+                5 PLAYERS
+            </button>
+
+            <button
+                class="player-count"
+                onclick="selectPlayers(6,this)">
+                6 PLAYERS
+            </button>
+
+        </div>
+
+        <br>
+
+        <button
+            class="btn primary"
+            onclick="startGame()">
+
+            DEAL THE CARDS
+
+        </button>
+
+    </div>
+
+
+    <div id="game">
+
+        <div class="game-top">
+
+            <div class="game-title">
+
+                <h3>
+                    UNDECKED TABLE
+                </h3>
+
+                <p id="turnText">
+                    Your turn
+                </p>
+
+            </div>
+
+
+            <div class="game-stats">
+
+                <div class="stat">
+
+                    <small>
+                        DRAW PILE
+                    </small>
+
+                    <strong id="deckCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <small>
+                        ALIVE
+                    </small>
+
+                    <strong id="aliveCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="table-scene">
+
+            <div class="game-table">
+
+                <div class="table-center">
+
+                    <div class="pile">
+
+                        <div class="pile-title">
+                            DRAW PILE
+                        </div>
+
+                        <div
+                            class="draw-pile"
+                            onclick="drawFromPile()">
+
+                            <div class="draw-card"></div>
+
+                        </div>
+
+                        <div
+                            class="pile-count"
+                            id="drawPileCount">
+
+                            0 CARDS
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pile">
+
+                        <div class="pile-title">
+                            PLAYED
+                        </div>
+
+                        <div
+                            class="played-card empty"
+                            id="playedCard">
+
+                            NO CARD
+
+                        </div>
+
+                        <div
+                            class="pile-count"
+                            id="playedCount">
+
+                            0 PLAYED
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div id="seats"></div>
+
+
+            <div class="my-hand">
+
+                <div class="hand-label">
+
+                    YOUR HAND —
+                    <span id="handCount">
+                        0 / 12
+                    </span>
+
+                </div>
+
+                <div
+                    class="hand"
+                    id="hand">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="target-panel"
+            id="targetPanel">
+
+            <strong id="targetTitle">
+                CHOOSE AN OPPONENT
+            </strong>
+
+            <p>
+                Pick someone sitting at the table.
+            </p>
+
+            <div
+                class="target-buttons"
+                id="targetButtons">
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="message"
+            id="message">
+
+            Your turn.
+
+        </div>
+
+
+        <div class="game-controls">
+
+            <button
+                class="btn secondary"
+                onclick="endTurn()">
+
+                END TURN
+
+            </button>
+
+            <button
+                class="btn secondary"
+                onclick="newGame()">
+
+                NEW GAME
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RULES -->
+
+<section class="rules" id="rules">
+
+    <div class="title">
+
+        <h2>
+            OFFICIAL
+            <span>RULES</span>
+        </h2>
+
+        <p>
+            Easy to learn.
+        </p>
+
+    </div>
+
+
+    <div class="rules-box">
+
+        <div class="rule">
+
+            <div class="rule-number">
+                01
+            </div>
+
+            <p>
+                Everyone starts with
+                <strong>7 cards.</strong>
+            </p>
+
+        </div>
+
+
+        <div class="rule">
+
+            <div class="rule-number">
+                02
+            </div>
+
+            <p>
+                Draw 1 card, then play 1 card.
+            </p>
+
+        </div>
+
+
+        <div class="rule">
+
+            <div class="rule-number">
+                03
+            </div>
+
+            <p>
+                If you have
+                <strong>12 cards</strong>,
+                you cannot draw.
+            </p>
+
+        </div>
+
+
+        <div class="rule">
+
+            <div class="rule-number">
+                04
+            </div>
+
+            <p>
+                Every card affects another player.
+            </p>
+
+        </div>
+
+
+        <div class="rule">
+
+            <div class="rule-number">
+                05
+            </div>
+
+            <p>
+                Reach
+                <strong>0 cards</strong>
+                and you're OUT.
+            </p>
+
+        </div>
+
+
+        <div class="rule">
+
+            <div class="rule-number">
+                06
+            </div>
+
+            <p>
+                The last player with cards wins.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h3>
+        UNDECKED<span>.</span>
+    </h3>
+
+    <p>
+        UNDECKED — TRY TO LOSE
+    </p>
+
+    <p>
+        © 2026 UNDECKED
+    </p>
+
+</footer>
+
+
+<script>
+
+/* NAV */
+
+function toggleMenu(){
+
+    document
+        .getElementById("navLinks")
+        .classList.toggle("show");
+
+}
+
+
+/* =========================
+   BUY SYSTEM
+========================= */
+
+let selectedDecks=1;
+let selectedPrice=9.99;
+
+
+function selectPackage(
+    decks,
+    price,
+    element
+){
+
+    selectedDecks=decks;
+    selectedPrice=price;
+
+    document
+        .querySelectorAll(".package")
+        .forEach(packageElement=>{
+            packageElement.classList.remove(
+                "selected"
+            );
+        });
+
+    element.classList.add("selected");
+
+    document
+        .getElementById("price")
+        .textContent=
+        price.toFixed(2);
+
+}
+
+
+function buyDeck(){
+
+    alert(
+        "UNDECKED checkout is coming soon!\n\n"+
+        "Selected: "+
+        selectedDecks+
+        " deck"+
+        (
+            selectedDecks===1
+            ? ""
+            : "s"
+        )+
+        "\nPrice: $"+
+        selectedPrice.toFixed(2)+
+        " CAD"
+    );
+
+}
+
+
+/* =========================
+   CARD DATA
+========================= */
+
+const cardTypes=[
+
+    {
+        name:"SLASH",
+        type:"ATTACK",
+        copies:5,
+        description:
+        "Choose an opponent. They discard 2 cards.",
+        action:"discard",
+        amount:2
+    },
+
+    {
+        name:"CRASH",
+        type:"ATTACK",
+        copies:4,
+        description:
+        "Choose an opponent. They discard 3 cards.",
+        action:"discard",
+        amount:3
+    },
+
+    {
+        name:"WIPEOUT",
+        type:"ATTACK",
+        copies:2,
+        description:
+        "Choose an opponent with 6+ cards. They discard 4.",
+        action:"discard",
+        amount:4
+    },
+
+    {
+        name:"FINISHER",
+        type:"ATTACK",
+        copies:2,
+        description:
+        "Choose an opponent with 3 or fewer cards. They discard 2.",
+        action:"finisher",
+        amount:2
+    },
+
+    {
+        name:"FORCED DRAW",
+        type:"ATTACK",
+        copies:5,
+        description:
+        "Choose an opponent. They draw 2 cards.",
+        action:"draw",
+        amount:2
+    },
+
+    {
+        name:"HEIST",
+        type:"STEAL",
+        copies:4,
+        description:
+        "Take 2 random cards from an opponent.",
+        action:"steal",
+        amount:2
+    },
+
+    {
+        name:"RAID",
+        type:"STEAL",
+        copies:2,
+        description:
+        "Take 3 random cards from an opponent.",
+        action:"steal",
+        amount:3
+    },
+
+    {
+        name:"TAKE 1",
+        type:"STEAL",
+        copies:4,
+        description:
+        "Take 1 random card from an opponent.",
+        action:"steal",
+        amount:1
+    },
+
+    {
+        name:"BURDEN",
+        type:"TRANSFER",
+        copies:4,
+        description:
+        "Give 3 cards from your hand to an opponent.",
+        action:"give",
+        amount:3
+    },
+
+    {
+        name:"PASS IT ON",
+        type:"TRANSFER",
+        copies:4,
+        description:
+        "Give 2 cards from your hand to an opponent.",
+        action:"give",
+        amount:2
+    },
+
+    {
+        name:"HAND SWAP",
+        type:"CHAOS",
+        copies:2,
+        description:
+        "Swap your entire hand with an opponent.",
+        action:"swap"
+    },
+
+    {
+        name:"MIX UP",
+        type:"CHAOS",
+        copies:2,
+        description:
+        "Choose an opponent. They swap hands with another player.",
+        action:"mix"
+    },
+
+    {
+        name:"BLACKOUT",
+        type:"CHAOS",
+        copies:3,
+        description:
+        "Choose an opponent. They discard 1 random card.",
+        action:"randomDiscard",
+        amount:1
+    },
+
+    {
+        name:"PANIC",
+        type:"CHAOS",
+        copies:2,
+        description:
+        "Choose an opponent. They draw 3 cards.",
+        action:"draw",
+        amount:3
+    },
+
+    {
+        name:"SCRAMBLE",
+        type:"CHAOS",
+        copies:2,
+        description:
+        "Choose an opponent. Shuffle their hand.",
+        action:"shuffle"
+    },
+
+    {
+        name:"HAND FLIP",
+        type:"CHAOS",
+        copies:2,
+        description:
+        "Choose an opponent. Their hand goes to another player.",
+        action:"passRandom"
+    },
+
+    {
+        name:"DOUBLE TROUBLE",
+        type:"CHAOS",
+        copies:3,
+        description:
+        "Choose an opponent. Their next card is cancelled.",
+        action:"curse"
+    },
+
+    {
+        name:"MARK",
+        type:"STRATEGY",
+        copies:3,
+        description:
+        "Mark an opponent for your next attack.",
+        action:"mark"
+    },
+
+    {
+        name:"REVEAL",
+        type:"STRATEGY",
+        copies:3,
+        description:
+        "Choose an opponent. Remove 1 card from their hand.",
+        action:"reveal"
+    },
+
+    {
+        name:"PICK ONE",
+        type:"STRATEGY",
+        copies:2,
+        description:
+        "Choose an opponent. They discard 1 card.",
+        action:"pickOne"
+    },
+
+    {
+        name:"LOCK",
+        type:"STRATEGY",
+        copies:2,
+        description:
+        "Choose an opponent. They cannot draw next turn.",
+        action:"lock"
+    },
+
+    {
+        name:"TARGET",
+        type:"STRATEGY",
+        copies:2,
+        description:
+        "Choose an opponent. Their next effect targets you.",
+        action:"target"
+    },
+
+    {
+        name:"BASE",
+        type:"BASE",
+        copies:2,
+        description:
+        "Choose an opponent. They discard 3 cards.",
+        action:"discard",
+        amount:3
+    },
+
+    {
+        name:"BASE BREAKER",
+        type:"BASE",
+        copies:2,
+        description:
+        "Choose an opponent with 5+ cards. They discard 5.",
+        action:"discard5",
+        amount:5
+    },
+
+    {
+        name:"BASE RUSH",
+        type:"BASE",
+        copies:1,
+        description:
+        "Choose an opponent. They draw 4 cards.",
+        action:"draw",
+        amount:4
+    },
+
+    {
+        name:"BASE RAID",
+        type:"BASE",
+        copies:1,
+        description:
+        "Take 4 random cards from an opponent.",
+        action:"steal",
+        amount:4
+    },
+
+    {
+        name:"BASE CHAOS",
+        type:"BASE",
+        copies:1,
+        description:
+        "Choose an opponent. Swap their hand with another player.",
+        action:"chaos"
+    },
+
+    {
+        name:"BASE TRAP",
+        type:"BASE",
+        copies:1,
+        description:
+        "Choose an opponent. Their next attack changes target.",
+        action:"target"
+    }
+
+];
+
+
+/* GAME VARIABLES */
+
+let deck=[];
+let players=[];
+let currentPlayer=0;
+let selectedPlayers=2;
+let gameOver=false;
+let pendingAction=null;
+let playedCards=[];
+
+
+/* SHUFFLE */
+
+function shuffle(array){
+
+    for(
+        let i=array.length-1;
+        i>0;
+        i--
+    ){
+
+        let j=
+            Math.floor(
+                Math.random()*(i+1)
+            );
+
+        [
+            array[i],
+            array[j]
+        ]=[
+            array[j],
+            array[i]
+        ];
+
+    }
+
+}
+
+
+/* CREATE DECK */
+
+function createDeck(){
+
+    let result=[];
+
+    cardTypes.forEach(card=>{
+
+        for(
+            let i=0;
+            i<card.copies;
+            i++
+        ){
+
+            result.push({
+
+                name:card.name,
+                type:card.type,
+                description:card.description,
+                action:card.action,
+                amount:card.amount
+
+            });
+
+        }
+
+    });
+
+    shuffle(result);
+
+    return result;
+
+}
+
+
+/* SELECT PLAYERS */
+
+function selectPlayers(
+    number,
+    button
+){
+
+    selectedPlayers=number;
+
+    document
+        .querySelectorAll(
+            ".player-count"
+        )
+        .forEach(btn=>{
+            btn.classList.remove(
+                "selected"
+            );
+        });
+
+    button.classList.add(
+        "selected"
+    );
+
+}
+
+
+/* START GAME */
+
+function startGame(){
+
+    deck=createDeck();
+
+    playedCards=[];
+
+    players=[];
+
+    for(
+        let i=0;
+        i<selectedPlayers;
+        i++
+    ){
+
+        players.push({
+
+            name:
+            i===0
+            ? "YOU"
+            : "PLAYER "+(i+1),
+
+            hand:[],
+
+            alive:true,
+
+            locked:false,
+
+            marked:false,
+
+            cursed:false,
+
+            forcedTarget:null
+
+        });
+
+    }
+
+
+    for(
+        let round=0;
+        round<7;
+        round++
+    ){
+
+        players.forEach(
+            player=>{
+
+                player.hand.push(
+                    drawFromDeck()
+                );
+
+            }
+        );
+
+    }
+
+
+    currentPlayer=0;
+    gameOver=false;
+
+    document
+        .getElementById("setup")
+        .style.display="none";
+
+    document
+        .getElementById("game")
+        .style.display="block";
+
+    renderGame();
+
+    setMessage(
+        "The game begins. Your turn."
+    );
+
+}
+
+
+/* DRAW */
+
+function drawFromDeck(){
+
+    if(deck.length===0){
+
+        return {
+
+            name:"EMPTY",
+            type:"SYSTEM",
+            description:"No cards left.",
+            action:"none"
+
+        };
+
+    }
+
+    return deck.pop();
+
+}
+
+
+function drawFromPile(){
+
+    if(gameOver){
+
+        setMessage(
+            "The game is over."
+        );
+
+        return;
+
+    }
+
+    if(currentPlayer!==0){
+
+        setMessage(
+            "Wait for your turn."
+        );
+
+        return;
+
+    }
+
+    let player=players[0];
+
+    if(player.hand.length>=12){
+
+        setMessage(
+            "You have 12 cards. You cannot draw."
+        );
+
+        return;
+
+    }
+
+    let card=drawFromDeck();
+
+    if(card.name==="EMPTY"){
+
+        setMessage(
+            "The draw pile is empty."
+        );
+
+        return;
+
+    }
+
+    player.hand.push(card);
+
+    renderGame();
+
+    setMessage(
+        "You drew a card."
+    );
+
+}
+
+
+/* PLAY CARD */
+
+function playCard(index){
+
+    if(gameOver)
+        return;
+
+    if(currentPlayer!==0){
+
+        setMessage(
+            "Wait for your turn."
+        );
+
+        return;
+
+    }
+
+    let card=
+        players[0].hand[index];
+
+    if(!card)
+        return;
+
+    pendingAction={
+        cardIndex:index,
+        card:card
+    };
+
+    showTargets(card);
+
+}
+
+
+/* TARGETS */
+
+function showTargets(card){
+
+    let panel=
+        document.getElementById(
+            "targetPanel"
+        );
+
+    let buttons=
+        document.getElementById(
+            "targetButtons"
+        );
+
+    buttons.innerHTML="";
+
+    document.getElementById(
+        "targetTitle"
+    ).textContent=
+        "WHO DO YOU TARGET?";
+
+
+    players.forEach(
+        (player,index)=>{
+
+            if(
+                index===0 ||
+                !player.alive
+            )
+                return;
+
+            let button=
+                document.createElement(
+                    "button"
+                );
+
+            button.className=
+                "target-button";
+
+            button.textContent=
+                player.name+
+                " • "+
+                player.hand.length+
+                " CARDS";
+
+            button.onclick=()=>{
+
+                executeCard(
+                    0,
+                    index
+                );
+
+            };
+
+            buttons.appendChild(
+                button
+            );
+
+        }
+    );
+
+
+    panel.style.display="block";
+
+}
+
+
+/* EXECUTE */
+
+function executeCard(
+    actorIndex,
+    targetIndex
+){
+
+    let actor=
+        players[actorIndex];
+
+    let target=
+        players[targetIndex];
+
+    let card=
+        actor.hand[
+            pendingAction.cardIndex
+        ];
+
+    if(!card){
+
+        closeTarget();
+
+        return;
+
+    }
+
+    actor.hand.splice(
+        pendingAction.cardIndex,
+        1
+    );
+
+    closeTarget();
+
+    playedCards.push(card);
+
+    applyEffect(
+        actor,
+        target,
+        card
+    );
+
+    checkEliminations();
+
+    renderGame();
+
+    if(checkWinner())
+        return;
+
+
+    if(actorIndex===0){
+
+        setMessage(
+            "You played "+
+            card.name+
+            " on "+
+            target.name+"."
+        );
+
+        setTimeout(
+            ()=>{
+                nextTurn();
+            },
+            650
+        );
+
+    }
+
+}
+
+
+/* EFFECTS */
+
+function applyEffect(
+    actor,
+    target,
+    card
+){
+
+    switch(card.action){
+
+        case "discard":
+
+            discardCards(
+                target,
+                card.amount
+            );
+
+            break;
+
+        case "discard5":
+
+            if(
+                target.hand.length>=5
+            ){
+
+                discardCards(
+                    target,
+                    5
+                );
+
+            }
+
+            break;
+
+        case "finisher":
+
+            if(
+                target.hand.length<=3
+            ){
+
+                discardCards(
+                    target,
+                    Math.min(
+                        2,
+                        target.hand.length
+                    )
+                );
+
+            }
+
+            break;
+
+        case "draw":
+
+            drawCards(
+                target,
+                card.amount
+            );
+
+            break;
+
+        case "steal":
+
+            stealCards(
+                actor,
+                target,
+                card.amount
+            );
+
+            break;
+
+        case "give":
+
+            giveCards(
+                actor,
+                target,
+                card.amount
+            );
+
+            break;
+
+        case "swap":
+
+            [
+                actor.hand,
+                target.hand
+            ]=[
+                target.hand,
+                actor.hand
+            ];
+
+            limitHand(actor);
+            limitHand(target);
+
+            break;
+
+        case "randomDiscard":
+
+            discardCards(
+                target,
+                1
+            );
+
+            break;
+
+        case "shuffle":
+
+            shuffle(
+                target.hand
+            );
+
+            break;
+
+        case "passRandom":
+
+            passRandom(target);
+
+            break;
+
+        case "mix":
+
+            let others=
+                players.filter(
+                    p=>
+                    p.alive &&
+                    p!==actor &&
+                    p!==target
+                );
+
+            if(others.length){
+
+                let other=
+                    others[
+                        Math.floor(
+                            Math.random()*
+                            others.length
+                        )
+                    ];
+
+                [
+                    target.hand,
+                    other.hand
+                ]=[
+                    other.hand,
+                    target.hand
+                ];
+
+                limitHand(target);
+                limitHand(other);
+
+            }
+
+            break;
+
+        case "curse":
+
+            target.cursed=true;
+
+            break;
+
+        case "mark":
+
+            target.marked=true;
+
+            break;
+
+        case "reveal":
+
+            if(target.hand.length){
+
+                let i=
+                    Math.floor(
+                        Math.random()*
+                        target.hand.length
+                    );
+
+                target.hand.splice(
+                    i,
+                    1
+                );
+
+            }
+
+            break;
+
+        case "pickOne":
+
+            discardCards(
+                target,
+                1
+            );
+
+            break;
+
+        case "lock":
+
+            target.locked=true;
+
+            break;
+
+        case "target":
+
+            target.forcedTarget=actor;
+
+            break;
+
+        case "chaos":
+
+            let alive=
+                players.filter(
+                    p=>p.alive
+                );
+
+            if(alive.length>=2){
+
+                let other=
+                    alive[
+                        Math.floor(
+                            Math.random()*
+                            alive.length
+                        )
+                    ];
+
+                [
+                    target.hand,
+                    other.hand
+                ]=[
+                    other.hand,
+                    target.hand
+                ];
+
+                limitHand(target);
+                limitHand(other);
+
+            }
+
+            break;
+
+    }
+
+    limitHand(actor);
+    limitHand(target);
+
+}
+
+
+/* DISCARD */
+
+function discardCards(
+    player,
+    amount
+){
+
+    for(
+        let i=0;
+        i<amount;
+        i++
+    ){
+
+        if(
+            player.hand.length===0
+        )
+            break;
+
+        let index=
+            Math.floor(
+                Math.random()*
+                player.hand.length
+            );
+
+        player.hand.splice(
+            index,
+            1
+        );
+
+    }
+
+}
+
+
+/* DRAW CARDS */
+
+function drawCards(
+    player,
+    amount
+){
+
+    for(
+        let i=0;
+        i<amount;
+        i++
+    ){
+
+        if(
+            player.hand.length>=12
+        )
+            break;
+
+        let card=
+            drawFromDeck();
+
+        if(card.name==="EMPTY")
+            break;
+
+        player.hand.push(card);
+
+    }
+
+}
+
+
+/* STEAL */
+
+function stealCards(
+    actor,
+    target,
+    amount
+){
+
+    for(
+        let i=0;
+        i<amount;
+        i++
+    ){
+
+        if(
+            target.hand.length===0 ||
+            actor.hand.length>=12
+        )
+            break;
+
+        let index=
+            Math.floor(
+                Math.random()*
+                target.hand.length
+            );
+
+        actor.hand.push(
+            target.hand.splice(
+                index,
+                1
+            )[0]
+        );
+
+    }
+
+}
+
+
+/* GIVE */
+
+function giveCards(
+    actor,
+    target,
+    amount
+){
+
+    for(
+        let i=0;
+        i<amount;
+        i++
+    ){
+
+        if(
+            actor.hand.length===0 ||
+            target.hand.length>=12
+        )
+            break;
+
+        let index=
+            Math.floor(
+                Math.random()*
+                actor.hand.length
+            );
+
+        target.hand.push(
+            actor.hand.splice(
+                index,
+                1
+            )[0]
+        );
+
+    }
+
+}
+
+
+/* PASS RANDOM */
+
+function passRandom(target){
+
+    let choices=
+        players.filter(
+            p=>
+            p.alive &&
+            p!==target
+        );
+
+    if(!choices.length)
+        return;
+
+    let other=
+        choices[
+            Math.floor(
+                Math.random()*
+                choices.length
+            )
+        ];
+
+    [
+        target.hand,
+        other.hand
+    ]=[
+        other.hand,
+        target.hand
+    ];
+
+    limitHand(target);
+    limitHand(other);
+
+}
+
+
+/* LIMIT */
+
+function limitHand(player){
+
+    while(
+        player.hand.length>12
+    ){
+
+        player.hand.pop();
+
+    }
+
+}
+
+
+/* ELIMINATIONS */
+
+function checkEliminations(){
+
+    players.forEach(
+        player=>{
+
+            if(
+                player.alive &&
+                player.hand.length===0
+            ){
+
+                player.alive=false;
+
+            }
+
+        }
+    );
+
+}
+
+
+/* WINNER */
+
+function checkWinner(){
+
+    let alive=
+        players.filter(
+            p=>p.alive
+        );
+
+    if(alive.length<=1){
+
+        gameOver=true;
+
+        if(alive.length===1){
+
+            setMessage(
+                alive[0].name+
+                " WINS UNDECKED!"
+            );
+
+        }
+
+        return true;
+
+    }
+
+    return false;
+
+}
+
+
+/* NEXT TURN */
+
+function nextTurn(){
+
+    if(gameOver)
+        return;
+
+    let attempts=0;
+
+    do{
+
+        currentPlayer=
+            (currentPlayer+1)
+            %players.length;
+
+        attempts++;
+
+    }
+    while(
+        !players[currentPlayer].alive &&
+        attempts<players.length
+    );
+
+
+    if(
+        currentPlayer!==0
+    ){
+
+        aiTurn();
+
+    }
+    else{
+
+        setMessage(
+            "Your turn."
+        );
+
+        renderGame();
+
+    }
+
+}
+
+
+/* AI */
+
+function aiTurn(){
+
+    if(gameOver)
+        return;
+
+    let ai=
+        players[currentPlayer];
+
+    if(!ai.alive){
+
+        nextTurn();
+
+        return;
+
+    }
+
+    if(
+        ai.hand.length<12 &&
+        !ai.locked
+    ){
+
+        let card=
+            drawFromDeck();
+
+        if(
+            card.name!=="EMPTY"
+        ){
+
+            ai.hand.push(card);
+
+        }
+
+    }
+
+    ai.locked=false;
+
+
+    if(ai.hand.length===0){
+
+        checkEliminations();
+
+        if(!checkWinner())
+            nextTurn();
+
+        return;
+
+    }
+
+
+    let cardIndex=
+        Math.floor(
+            Math.random()*
+            ai.hand.length
+        );
+
+    let card=
+        ai.hand[cardIndex];
+
+
+    let targets=
+        players.filter(
+            (p,index)=>
+            p.alive &&
+            index!==currentPlayer
+        );
+
+    if(!targets.length){
+
+        checkWinner();
+
+        return;
+
+    }
+
+    let target=
+        targets[
+            Math.floor(
+                Math.random()*
+                targets.length
+            )
+        ];
+
+
+    ai.hand.splice(
+        cardIndex,
+        1
+    );
+
+    playedCards.push(card);
+
+    applyEffect(
+        ai,
+        target,
+        card
+    );
+
+    checkEliminations();
+
+    renderGame();
+
+
+    if(checkWinner())
+        return;
+
+
+    setMessage(
+        ai.name+
+        " played "+
+        card.name+
+        " on "+
+        target.name+"."
+    );
+
+
+    setTimeout(
+        ()=>{
+            nextTurn();
+        },
+        700
+    );
+
+}
+
+
+/* END TURN */
+
+function endTurn(){
+
+    if(gameOver)
+        return;
+
+    if(currentPlayer!==0){
+
+        setMessage(
+            "It isn't your turn."
+        );
+
+        return;
+
+    }
+
+    nextTurn();
+
+}
+
+
+/* CLOSE TARGET */
+
+function closeTarget(){
+
+    document
+        .getElementById(
+            "targetPanel"
+        )
+        .style.display="none";
+
+    pendingAction=null;
+
+}
+
+
+/* MESSAGE */
+
+function setMessage(text){
+
+    document
+        .getElementById(
+            "message"
+        )
+        .textContent=text;
+
+}
+
+
+/* RENDER */
+
+function renderGame(){
+
+    document
+        .getElementById(
+            "deckCount"
+        )
+        .textContent=
+        deck.length;
+
+    document
+        .getElementById(
+            "drawPileCount"
+        )
+        .textContent=
+        deck.length+
+        " CARDS";
+
+
+    document
+        .getElementById(
+            "aliveCount"
+        )
+        .textContent=
+        players.filter(
+            p=>p.alive
+        ).length;
+
+
+    document
+        .getElementById(
+            "turnText"
+        )
+        .textContent=
+        currentPlayer===0
+        ? "YOUR TURN"
+        : players[currentPlayer].name+
+          "'S TURN";
+
+
+    let hand=
+        document.getElementById(
+            "hand"
+        );
+
+    hand.innerHTML="";
+
+
+    players[0].hand.forEach(
+        (card,index)=>{
+
+            let element=
+                document.createElement(
+                    "div"
+                );
+
+            element.className=
+                "game-card";
+
+            element.onclick=()=>{
+                playCard(index);
+            };
+
+            element.innerHTML=`
+
+                <div class="card-type">
+                    ${card.type}
+                </div>
+
+                <h4>
+                    ${card.name}
+                </h4>
+
+                <p>
+                    ${card.description}
+                </p>
+
+            `;
+
+            hand.appendChild(
+                element
+            );
+
+        }
+    );
+
+
+    document
+        .getElementById(
+            "handCount"
+        )
+        .textContent=
+        players[0].hand.length+
+        " / 12";
+
+
+    let played=
+        document.getElementById(
+            "playedCard"
+        );
+
+    if(
+        playedCards.length===0
+    ){
+
+        played.className=
+            "played-card empty";
+
+        played.textContent=
+            "NO CARD";
+
+    }
+    else{
+
+        let card=
+            playedCards[
+                playedCards.length-1
+            ];
+
+        played.className=
+            "played-card";
+
+        played.innerHTML=`
+
+            <div class="played-type">
+                ${card.type}
+            </div>
+
+            <div class="played-name">
+                ${card.name}
+            </div>
+
+            <div class="played-description">
+                ${card.description}
+            </div>
+
+        `;
+
+    }
+
+
+    document
+        .getElementById(
+            "playedCount"
+        )
+        .textContent=
+        playedCards.length+
+        " PLAYED";
+
+
+    let seats=
+        document.getElementById(
+            "seats"
+        );
+
+    seats.innerHTML="";
+
+
+    players.forEach(
+        (player,index)=>{
+
+            if(index===0)
+                return;
+
+            let seat=
+                document.createElement(
+                    "div"
+                );
+
+            seat.className=
+                "seat seat-"+index;
+
+            if(
+                currentPlayer===index
+            ){
+
+                seat.classList.add(
+                    "current"
+                );
+
+            }
+
+            if(!player.alive){
+
+                seat.classList.add(
+                    "out"
+                );
+
+            }
+
+
+            let miniCards="";
+
+
+            for(
+                let i=0;
+                i<Math.min(
+                    player.hand.length,
+                    7
+                );
+                i++
+            ){
+
+                miniCards+=
+                    `<div class="mini-card"></div>`;
+
+            }
+
+
+            seat.innerHTML=`
+
+                <div class="seat-avatar"></div>
+
+                <div class="seat-name">
+                    ${player.name}
+                </div>
+
+                <div class="seat-count">
+                    ${player.hand.length} CARDS
+                </div>
+
+                <div class="seat-status">
+                    ${
+                        player.alive
+                        ? "ALIVE"
+                        : "OUT"
+                    }
+                </div>
+
+                <div class="opponent-cards">
+                    ${miniCards}
+                </div>
+
+            `;
+
+            seats.appendChild(
+                seat
+            );
+
+        }
+    );
+
+}
+
+
+/* NEW GAME */
+
+function newGame(){
+
+    document
+        .getElementById(
+            "game"
+        )
+        .style.display="none";
+
+    document
+        .getElementById(
+            "setup"
+        )
+        .style.display="block";
+
+    deck=[];
+    players=[];
+    playedCards=[];
+    currentPlayer=0;
+    gameOver=false;
+    pendingAction=null;
+
+    document
+        .getElementById(
+            "targetPanel"
+        )
+        .style.display="none";
+
+}
+
+</script>
+
+</body>
+</html>
